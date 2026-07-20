@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Estadio Pop – Placa de Noticias Deportivas Federales</title>
+  <meta name="description" content="Análisis, crónicas exclusivas e información del deporte con enfoque federal y diseño premium.">
+  <meta name="theme-color" content="#0e1116" />
+
+  <!-- ⚡ DIRECTIVA CRÍTICA PARA GOOGLE DISCOVER (Imágenes grandes en el feed) -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  
+  <!-- Propiedades Open Graph / Twitter Cards (Garantizan la lectura correcta del bot de Discover) -->
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Estadio Pop – Crónicas y Deportes Federales" />
+  <meta property="og:description" content="El pulso del deporte argentino con diseño de vanguardia y cobertura federal." />
+  <meta property="og:url" content="https://estadiopop.com" />
+  <meta property="og:site_name" content="Estadio Pop" />
+
+  <!-- Google Fonts: Combinación Editorial Premium (Lora + Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* --- Sistema de Diseño Editorial Premium & Accesible (WCAG AAA) --- */
+    :root {
+      /* Paleta de Colores Confort Visual (Negro Obsidiana y Gris Platino) */
+      --bg-main: #0e1116;
+      --bg-surface: #161a23;
+      --bg-navbar: #090b0e;
+      
+      /* Acentos de Marca Premium */
+      --interactive-primary: #ff4d4d; /* Coral Vivo para Oscuro */
+      --interactive-hover: #e04343;
+      --accent-danger: #8b0000;    
+      
+      /* Tipografías Editoriales */
+      --font-display: 'Lora', serif;
+      --font-body: 'Inter', sans-serif;
+      
+      --text-main: #e6e8ea; /* Platino suave para evitar estrés visual */
+      --text-muted: #9aa5b1;
+      --text-modal-body: #f4f6f8; /* Confort absoluto en lecturas largas */
+      
+      --radius-ux: 12px;
+      --transition-ux: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-main);
+      background: var(--bg-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* --- NAVIGATION BAR --- */
+    .navbar {
+      background-color: var(--bg-navbar) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 18px 0;
+    }
+    .navbar-brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.3px;
+      color: var(--text-main) !important;
+    }
+
+    /* --- CONTROLES DE FILTRADO UX (STICKY ANCHORS) --- */
+    .sports-navigator {
+      position: sticky;
+      top: 77px;
+      z-index: 1020;
+      background: rgba(14, 17, 22, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 14px 0;
+    }
+    .nav-ux-tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-ux-tabs::-webkit-scrollbar { display: none; }
+    
+    .ux-tab-btn {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 8px 20px;
+      border-radius: 4px; /* Estilo editorial más angular y serio */
+      font-weight: 500;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      transition: var(--transition-ux);
+    }
+    .ux-tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .ux-tab-btn.active {
+      background: var(--interactive-primary);
+      color: #ffffff !important;
+      font-weight: 600;
+      border-color: var(--interactive-primary);
+    }
+
+    /* --- HERO --- */
+    .hero-ux { padding: 45px 0 15px 0; }
+    .hero-ux h1 { font-family: var(--font-display); font-weight: 700; font-size: 2.8rem; letter-spacing: -0.5px; }
+
+    /* --- SECCIONES --- */
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--text-main);
+      margin-top: 30px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 8px;
+    }
+    .section-title small { font-family: var(--font-body); font-size: 0.85rem; color: var(--text-muted); font-weight: 400; margin-top: 4px; }
+
+    /* --- INTERACTIVE SURFACES (EDITORIAL CARD) --- */
+    .card-ux-wrapper { cursor: pointer; outline: none; height: 100%; display: block; text-decoration: none; color: inherit; }
+    .card-ux-wrapper:hover { color: inherit; }
+    .card-ux { background: var(--bg-surface); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: var(--radius-ux); overflow: hidden; height: 100%; position: relative; transition: var(--transition-ux); }
+    .card-ux-wrapper:hover .card-ux { transform: translateY(-3px); border-color: rgba(255, 77, 77, 0.4); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); }
+    
+    .img-container { overflow: hidden; position: relative; background: #1c212c; }
+    .card-ux .card-img-top { object-fit: cover; height: 240px; transition: var(--transition-ux); width: 100%; }
+    .card-ux-wrapper:hover .card-img-top { transform: scale(1.02); }
+    .card-ux .card-body { padding: 24px; }
+    
+    /* Títulos en Lora para emular prensa escrita */
+    .card-ux .card-title { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; line-height: 1.3; margin-bottom: 10px; color: var(--text-main); }
+    .card-ux .card-text { color: var(--text-muted); font-size: 0.95rem; font-weight: 400; line-height: 1.5; margin-bottom: 0; }
+
+    /* --- APERTURA DE IMPACTO DISCOVER (55% / 45%) --- */
+    .destacada-ux { display: grid; grid-template-columns: 58% 42%; }
+    .destacada-ux .img-container .card-img-top { height: 100% !important; min-height: 360px; }
+    .destacada-ux .card-body { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+    .destacada-ux .card-title { font-size: 2rem; font-weight: 700; margin-bottom: 14px; }
+
+    @media (max-width: 992px) {
+      .destacada-ux { grid-template-columns: 100%; }
+      .destacada-ux .card-img-top { height: 240px !important; min-height: auto; }
+      .destacada-ux .card-body { padding: 24px; }
+    }
+
+    /* --- OPTIMIZACIÓN EXTREMA DEL MODAL DE LECTURA (UI/UX) --- */
+    .modal-content-ux { background-color: var(--bg-surface); color: var(--text-main); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-ux); overflow: hidden; }
+    .modal-hero-img { width: 100%; height: 380px; object-fit: cover; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .modal-header-ux { border: none; padding: 32px 32px 10px 32px; }
+    .modal-title-editorial { font-family: var(--font-display); font-weight: 700; font-size: 1.85rem; line-height: 1.25; color: #ffffff; }
+    
+    /* Proporción áurea de lectura en pantallas oscuras (WCAG AAA Confort) */
+    .modal-body-ux { 
+      padding: 0 32px 40px 32px; 
+      font-size: 1.15rem; 
+      font-weight: 400; 
+      line-height: 1.75; 
+      color: var(--text-modal-body); 
+    }
+    .modal-body-ux p { margin-bottom: 1.5rem; }
+
+    .sidebar-ux { background: var(--bg-surface); border-radius: var(--radius-ux); padding: 24px; border: 1px solid rgba(255, 255, 255, 0.03); }
+    #banner-vivo { background-color: var(--accent-danger); font-weight: 600; border: none; font-size: 0.95rem; letter-spacing: 0.5px; }
+    
+    #btn-up { position: fixed; bottom: 30px; right: 30px; display: none; z-index: 1040; border-radius: 4px; width: 44px; height: 44px; background: var(--bg-surface); color: var(--text-main); border: 1px solid rgba(255,255,255,0.1); font-size: 16px; transition: var(--transition-ux); }
+    #btn-up:hover { background: var(--interactive-primary); color: #fff; }
+    
+    footer { background: var(--bg-navbar); padding: 40px 0; margin-top: 90px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid rgba(255, 255, 255, 0.04); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" aria-label="Estadio Pop Inicio">
+        <i class="bi bi-journal-text text-danger me-2"></i> ESTADIO POP
+      </a>
+    </div>
+  </nav>
+
+  <!-- BANNER EN VIVO -->
+  <div id="banner-vivo" class="alert alert-danger text-center m-0 rounded-0" role="status">
+    🔴 EN VIVO: <a href="#multimedia" class="alert-link text-white text-decoration-underline ms-1">Seguir la cobertura federal en directo</a>
+  </div>
+
+  <header class="hero-ux">
+    <div class="container">
+      <h1>Estadio Pop</h1>
+    </div>
+  </header>
+
+  <!-- FILTROS PEGAJOSOS EDITORIALES -->
+  <div class="sports-navigator">
+    <div class="container">
+      <nav class="nav-ux-tabs" role="tablist" aria-label="Categorías deportivas">
+        <a href="#lpf" class="ux-tab-btn active" role="tab" aria-selected="true">Liga Profesional</a>
+        <a href="#ascenso-federal" class="ux-tab-btn" role="tab" aria-selected="false">Ascenso Federal</a>
+        <a href="#seleccion" class="ux-tab-btn" role="tab" aria-selected="false">Selección Argentina</a>
+        <a href="#lnb" class="ux-tab-btn" role="tab" aria-selected="false">Liga Nacional Básquet</a>
+        <a href="#liga-argentina" class="ux-tab-btn" role="tab" aria-selected="false">Liga Argentina</a>
+        <a href="#arg-mundo" class="ux-tab-btn" role="tab" aria-selected="false">Argentinos en el Mundo</a>
+        <a href="#fierrismo" class="ux-tab-btn" role="tab" aria-selected="false">El Fierrismo</a>
+        <a href="#f1-internacional" class="ux-tab-btn" role="tab" aria-selected="false">Fórmula 1</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="py-4">
+    <div class="container">
+      <div class="row">
+        
+        <!-- SECCIONES DE CONTENIDO PERIODÍSTICO -->
+        <div class="col-lg-8">
+          
+          <section id="lpf">
+            <h2 class="section-title">Liga Profesional <small>Primera División de Argentina</small></h2>
+            <div class="row g-4 grilla-noticias" data-seccion="lpf"></div>
+          </section>
+
+          <section id="ascenso-federal">
+            <h2 class="section-title">Ascenso Federal <small>El pulso profundo del interior</small></h2>
+            <div class="row g-4 grilla-noticias" data-seccion="ascenso-federal"></div>
+          </section>
+
+          <section id="seleccion">
+            <h2 class="section-title">Selección Argentina <small>Actualidad en el predio de Ezeiza</small></h2>
+            <div class="row g-4 grilla-noticias" data-seccion="seleccion"></div>
+          </section>
+
+          <section id="lnb">
+            <h2 class="section-title">Liga Nacional <small>Básquetbol de elite nacional</small></h2>
+            <div class="row g-4 grilla-noticias" data-seccion="lnb"></div>
+          </section>
+
+          <section id="liga-argentina">
+            <h2 class="section-title">Liga Argentina <small>Segunda división nacional</small></h2>
+            <div class="row g-4 grilla-noticias" data-seccion="liga-argentina"></div>
+          </section>
+
+          <section id="arg-mundo">
+            <h2 class="section-title">Argentinos por el Mundo <small>Acción en NBA y ligas europeas</small></h2>
+            <div class="row g-4 grilla-noticias" data-seccion="arg-mundo"></div>
+          </section>
+
+          <section id="fierrismo">
+            <h2 class="section-title">El Fierrismo <small>Turismo Carretera, TN y zonales</small></h2>
+            <div class="row g-4 grilla-noticias" data-seccion="fierrismo"></div>
+          </section>
+
+          <section id="f1-internacional">
+            <h2 class="section-title">Fórmula 1 Internacional <small>La máxima cita del motor</small></h2>
+            <div class="row g-4 grilla-noticias" data-seccion="f1-internacional"></div>
+          </section>
+
+          <section id="multimedia" class="mb-4">
+            <h2 class="section-title">Multimedia <small>Compactos de la fecha</small></h2>
+            <div id="multimedia-content" class="row g-3"></div>
+          </section>
+
+          <section id="contacto" class="pt-2">
+            <h2 class="section-title">Redacción <small>Contacto de soporte al lector</small></h2>
+            <div class="d-flex gap-2 flex-wrap">
+              <a href="mailto:contacto@estadiopop.com" class="btn btn-sm btn-outline-light px-3 py-2">Mandar Correo</a>
+              <a href="https://wa.me/5491100000000" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-danger px-3 py-2">Mesa de WhatsApp</a>
+            </div>
+          </section>
+
+        </div> 
+
+        <!-- SIDEBAR DE SOPORTE MARCA -->
+        <aside class="col-lg-4 ps-lg-4 mt-5 mt-lg-0">
+          <div class="sidebar-ux">
+            <h4 class="h6 text-uppercase tracking-wider mb-3 text-danger fw-bold">Canales Oficiales</h4>
+            <div class="d-flex flex-column gap-2">
+              <a href="https://www.instagram.com" target="_blank" class="text-decoration-none text-light py-1"><i class="bi bi-instagram text-danger me-2"></i> @EstadioPop</a>
+              <a href="https://x.com" target="_blank" class="text-decoration-none text-light py-1"><i class="bi bi-twitter-x me-2"></i> Seguir en X</a>
+            </div>
+          </div>
+        </aside>
+
+      </div> 
+    </div> 
+  </main>
+
+  <button id="btn-up" aria-label="Volver al inicio de la página">↑</button>
+
+  <footer>
+    <div class="container text-center">
+      <p>© 2026 Estadio Pop | Diseño Editorial Premium Optimizado para Google Discover e Interfaces Accesibles</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // --- MOTOR DINÁMICO E INYECCIÓN DE DATOS ESTRUCTURADOS (SCHEMA.ORG) ---
+    fetch('noticias.json?nocache=' + Date.now())
+      .then(res => {
+        if(!res.ok) throw new Error('Error de red al leer el JSON');
+        return res.json();
+      })
+      .then(noticias => {
+        if(!Array.isArray(noticias) || noticias.length === 0) return;
+
+        noticias.reverse(); // Ordenación cronológica pura
+
+        document.querySelectorAll('.grilla-noticias').forEach(g => {
+          g.innerHTML = '<p class="text-muted ps-2 fs-6">Sin novedades editoriales en esta sección actualmente.</p>';
+        });
+
+        const contadorPorSeccion = {};
+        const schemasParaGoogle = [];
+
+        noticias.forEach((noticia, index) => {
+          const grillaDestino = document.querySelector(`.grilla-noticias[data-seccion="${noticia.seccion}"]`);
+          
+          if (grillaDestino) {
+            if (grillaDestino.querySelector('.text-muted')) grillaDestino.innerHTML = '';
+
+            if (!contadorPorSeccion[noticia.seccion]) contadorPorSeccion[noticia.seccion] = 0;
+            contadorPorSeccion[noticia.seccion]++;
+
+            const modalId = `modalNoticia${index}`;
+            const esPrimeraDeSeccion = contadorPorSeccion[noticia.seccion] === 1;
+
+            // --- GENERACIÓN JSON-LD REQUISITO EXIGIDO POR GOOGLE DISCOVER ---
+            const fechaIso = new Date().toISOString(); 
+            schemasParaGoogle.push({
+              "@context": "https://schema.org",
+              "@type": "NewsArticle",
+              "headline": noticia.titulo,
+              "image": [ noticia.imagen ],
+              "datePublished": fechaIso,
+              "dateModified": fechaIso,
+              "author": [{
+                  "@type": "Organization",
+                  "name": "Redacción Estadio Pop",
+                  "url": "https://estadiopop.com"
+              }],
+              "publisher": {
+                "@type": "Organization",
+                "name": "Estadio Pop",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://estadiopop.com/logo-discover.png" 
+                }
+              },
+              "description": noticia.descripcion || noticia.titulo
+            });
+
+            // Creación del contenedor semántico nativo <article>
+            const wrapper = document.createElement('article');
+            wrapper.className = 'card-ux-wrapper';
+            wrapper.setAttribute('role', 'button');
+            wrapper.setAttribute('tabindex', '0');
+            wrapper.setAttribute('data-bs-toggle', 'modal');
+            wrapper.setAttribute('data-bs-target', `#${modalId}`);
+
+            // Carga inteligente de imágenes (Evita retrasos de LCP / Penalizaciones de rendimiento)
+            const imageStrategy = esPrimeraDeSeccion 
+              ? `fetchpriority="high" alt="${noticia.alt || noticia.titulo}"` 
+              : `loading="lazy" alt="${noticia.alt || noticia.titulo}"`;
+
+            if (esPrimeraDeSeccion) {
+              wrapper.classList.add('col-12', 'mb-2');
+              wrapper.innerHTML = `
+                <div class="card-ux destacada-ux">
+                  <div class="img-container">
+                    <img src="${noticia.imagen}" class="card-img-top" ${imageStrategy}>
+                  </div>
+                  <div class="card-body">
+                    <div><span class="badge bg-danger mb-3 text-uppercase font-monospace" style="font-size:0.65rem; letter-spacing:0.5px;">Apertura</span></div>
+                    <h3 class="card-title">${noticia.titulo}</h3>
+                    <p class="card-text">${noticia.descripcion || ''}</p>
+                  </div>
+                </div>
+              `;
+            } else {
+              wrapper.classList.add('col-12', 'col-md-6');
+              wrapper.innerHTML = `
+                <div class="card-ux">
+                  <div class="img-container">
+                    <img src="${noticia.imagen}" class="card-img-top" ${imageStrategy}>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-title">${noticia.titulo}</h3>
+                    <p class="card-text text-truncate">${noticia.descripcion || ''}</p>
+                  </div>
+                </div>
+              `;
+            }
+
+            // Módulo Modal de lectura inmersiva
+            const modalMarkup = `
+              <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <div class="modal-content modal-content-ux">
+                    <img src="${noticia.imagen}" class="modal-hero-img" alt="" role="presentation">
+                    <div class="modal-header modal-header-ux">
+                      <h2 class="modal-title-editorial">${noticia.titulo}</h2>
+                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar artículo"></button>
+                    </div>
+                    <div class="modal-body modal-body-ux">
+                      <p style="white-space: pre-line;">${noticia.contenido || ''}</p>
+                      ${noticia.audio ? `<audio controls preload="none" class="w-100 mt-4"><source src="${noticia.audio}" type="audio/mpeg"></audio>` : ''}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            
+            wrapper.innerHTML += modalMarkup;
+            grillaDestino.appendChild(wrapper);
+
+            // Manejo de eventos por teclado para lectores de pantalla
+            wrapper.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const modalInstance = new bootstrap.Modal(document.getElementById(modalId));
+                modalInstance.show();
+              }
+            });
+          }
+        });
+
+        // Inyección estructural del script JSON-LD en la cabecera
+        const scriptSchema = document.createElement('script');
+        scriptSchema.type = 'application/ld+json';
+        scriptSchema.text = JSON.stringify(schemasParaGoogle);
+        document.head.appendChild(scriptSchema);
+      })
+      .catch(err => console.error("Falla en el despliegue del flujo digital:", err));
+
+    // --- INTERACTIVIDAD DEL MENÚ DE PESTAÑAS (COMPENSACIÓN STICKY) ---
+    const tabButtons = document.querySelectorAll('.ux-tab-btn');
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        tabButtons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        
+        const targetId = btn.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 145;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Control del botón de retorno (Back to Top)
+    const btnUp = document.getElementById('btn-up');
+    window.addEventListener('scroll', () => {
+      btnUp.style.display = (document.documentElement.scrollTop > 350) ? 'block' : 'none';
+    });
+    btnUp.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth' }); });
+  </script>
+</body>
+</html>
