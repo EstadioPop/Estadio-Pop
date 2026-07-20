@@ -4,85 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Estadio Pop – Placa de Noticias Deportivas Federales</title>
-  <meta name="description" content="Análisis, crónicas exclusivas e información del deporte con enfoque federal y diseño premium.">
-  <meta name="theme-color" content="#0e1116" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  
-  <meta property="og:locale" content="es_AR" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Estadio Pop – Crónicas y Deportes Federales" />
-  <meta property="og:description" content="El pulso del deporte argentino con diseño de vanguardia y cobertura federal." />
-  <meta property="og:url" content="https://estadiopop.com" />
-  <meta property="og:site_name" content="Estadio Pop" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
   <style>
     :root {
-      --bg-main: #0e1116;
-      --bg-surface: #161a23;
-      --bg-navbar: #090b0e;
-      --interactive-primary: #ff4d4d;
-      --interactive-hover: #e04343;
-      --accent-danger: #8b0000;
-      --font-display: 'Lora', serif;
-      --font-body: 'Inter', sans-serif;
-      --text-main: #e6e8ea;
-      --text-muted: #9aa5b1;
-      --text-modal-body: #f4f6f8;
-      --radius-ux: 12px;
-      --transition-ux: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --bg-main: #0e1116; --bg-surface: #161a23; --bg-navbar: #090b0e;
+      --interactive-primary: #ff4d4d; --text-main: #e6e8ea; --text-muted: #9aa5b1;
+      --font-display: 'Lora', serif; --font-body: 'Inter', sans-serif;
     }
-
-    body { font-family: var(--font-body); color: var(--text-main); background: var(--bg-main); overflow-x: hidden; line-height: 1.6; }
-
+    body { font-family: var(--font-body); color: var(--text-main); background: var(--bg-main); }
     .navbar { background-color: var(--bg-navbar) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.04); padding: 18px 0; }
-    .navbar-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; color: var(--text-main) !important; }
-
-    .sports-navigator { position: sticky; top: 0; z-index: 1020; background: rgba(14, 17, 22, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 14px 0; }
+    .navbar-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; }
+    .sports-navigator { position: sticky; top: 0; z-index: 1020; background: rgba(14, 17, 22, 0.9); backdrop-filter: blur(12px); padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .nav-ux-tabs { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; }
-    .nav-ux-tabs::-webkit-scrollbar { display: none; }
-    .ux-tab-btn { background: rgba(255, 255, 255, 0.02); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.06); padding: 8px 20px; border-radius: 4px; font-weight: 500; font-size: 0.9rem; white-space: nowrap; transition: var(--transition-ux); text-decoration: none; }
-    .ux-tab-btn.active { background: var(--interactive-primary); color: #ffffff !important; }
-
-    .hero-ux { padding: 45px 0 15px 0; }
-    .hero-ux h1 { font-family: var(--font-display); font-weight: 700; font-size: 2.8rem; }
-
-    .section-title { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; margin-top: 30px; margin-bottom: 24px; border-bottom: 2px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px; }
-    .section-title small { font-family: var(--font-body); font-size: 0.85rem; color: var(--text-muted); display: block; }
-
+    .ux-tab-btn { background: rgba(255, 255, 255, 0.02); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.06); padding: 8px 20px; border-radius: 4px; font-size: 0.9rem; text-decoration: none; transition: 0.2s; white-space: nowrap; }
+    .ux-tab-btn.active { background: var(--interactive-primary); color: #fff; }
+    .section-title { font-family: var(--font-display); margin: 40px 0 20px; border-bottom: 2px solid rgba(255, 255, 255, 0.05); padding-bottom: 10px; }
+    .card-ux { background: var(--bg-surface); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 12px; overflow: hidden; height: 100%; transition: 0.3s; }
     .card-ux-wrapper { cursor: pointer; display: block; text-decoration: none; color: inherit; }
-    .card-ux { background: var(--bg-surface); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: var(--radius-ux); overflow: hidden; height: 100%; transition: var(--transition-ux); }
-    .card-ux-wrapper:hover .card-ux { transform: translateY(-3px); border-color: rgba(255, 77, 77, 0.4); }
-    .card-img-top { object-fit: cover; height: 240px; width: 100%; }
-    .card-body { padding: 24px; }
-    .card-title { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; margin-bottom: 10px; }
-    .card-text { color: var(--text-muted); font-size: 0.95rem; }
-
-    .destacada-ux { display: grid; grid-template-columns: 58% 42%; }
-    @media (max-width: 992px) { .destacada-ux { grid-template-columns: 100%; } }
-
-    .modal-content-ux { background-color: var(--bg-surface); color: var(--text-main); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-ux); }
-    .modal-hero-img { width: 100%; height: 380px; object-fit: cover; }
-    .modal-body-ux { padding: 32px; font-size: 1.15rem; line-height: 1.75; }
-    
-    #btn-up { position: fixed; bottom: 30px; right: 30px; display: none; z-index: 1040; background: var(--bg-surface); color: var(--text-main); border: 1px solid rgba(255,255,255,0.1); width: 44px; height: 44px; }
-    footer { background: var(--bg-navbar); padding: 40px 0; margin-top: 90px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+    .card-ux-wrapper:hover .card-ux { transform: translateY(-5px); border-color: var(--interactive-primary); }
+    .card-img-top { height: 200px; object-fit: cover; }
+    .modal-content-ux { background-color: var(--bg-surface); color: var(--text-main); }
   </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#"><i class="bi bi-journal-text text-danger me-2"></i> ESTADIO POP</a>
-    </div>
-  </nav>
-
-  <header class="hero-ux"><div class="container"><h1>Estadio Pop</h1></div></header>
+  <nav class="navbar navbar-dark"><div class="container"><a class="navbar-brand" href="#">ESTADIO POP</a></div></nav>
 
   <div class="sports-navigator">
     <div class="container">
@@ -96,23 +44,13 @@
     </div>
   </div>
 
-  <main class="py-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <section id="lpf"><h2 class="section-title">Liga Profesional <small>Primera División</small></h2><div class="row g-4 grilla-noticias" data-seccion="lpf"></div></section>
-          <section id="ascenso-federal"><h2 class="section-title">Ascenso Federal <small>Interior Profundo</small></h2><div class="row g-4 grilla-noticias" data-seccion="ascenso-federal"></div></section>
-          <section id="seleccion"><h2 class="section-title">Selección Argentina <small>Actualidad</small></h2><div class="row g-4 grilla-noticias" data-seccion="seleccion"></div></section>
-          <section id="lnb"><h2 class="section-title">Liga Nacional <small>Básquetbol</small></h2><div class="row g-4 grilla-noticias" data-seccion="lnb"></div></section>
-        </div>
-        <section id="auto"><h2 class="section-title">Automovilismo <small>Actualidad</small></h2><div class="row g-4 grilla-noticias" data-seccion="lnb"></div></section>
-        </div>
-      </div>
-    </div>
+  <main class="container py-4">
+    <section id="lpf"><h2 class="section-title">Liga Profesional</h2><div class="row g-4 grilla-noticias" data-seccion="lpf"></div></section>
+    <section id="ascenso-federal"><h2 class="section-title">Ascenso Federal</h2><div class="row g-4 grilla-noticias" data-seccion="ascenso-federal"></div></section>
+    <section id="seleccion"><h2 class="section-title">Selección Argentina</h2><div class="row g-4 grilla-noticias" data-seccion="seleccion"></div></section>
+    <section id="lnb"><h2 class="section-title">Liga Nacional</h2><div class="row g-4 grilla-noticias" data-seccion="lnb"></div></section>
+    <section id="auto"><h2 class="section-title">Automovilismo</h2><div class="row g-4 grilla-noticias" data-seccion="auto"></div></section>
   </main>
-
-  <button id="btn-up">↑</button>
-  <footer><div class="container"><p>© 2026 Estadio Pop | Diseño Editorial Premium</p></div></footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -124,27 +62,22 @@
           if (!grilla) return;
           
           const modalId = `modal${index}`;
-          const wrapper = document.createElement('article');
-          wrapper.className = 'col-12 col-md-6 card-ux-wrapper';
+          const wrapper = document.createElement('div');
+          wrapper.className = 'col-12 col-md-4 card-ux-wrapper';
           wrapper.setAttribute('data-bs-toggle', 'modal');
           wrapper.setAttribute('data-bs-target', `#${modalId}`);
-          
           wrapper.innerHTML = `
             <div class="card-ux">
-              <div class="img-container"><img src="${noticia.imagen}" class="card-img-top"></div>
-              <div class="card-body">
-                <h3 class="card-title">${noticia.titulo}</h3>
-                <p class="card-text">${noticia.descripcion || ''}</p>
-              </div>
+              <img src="${noticia.imagen}" class="card-img-top">
+              <div class="p-3"><h5>${noticia.titulo}</h5><p class="text-muted small">${noticia.descripcion || ''}</p></div>
             </div>`;
           
           const modalMarkup = `
-            <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="${modalId}" tabindex="-1">
               <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content modal-content-ux">
-                  <img src="${noticia.imagen}" class="modal-hero-img">
-                  <div class="modal-header"><h2 class="modal-title p-3">${noticia.titulo}</h2></div>
-                  <div class="modal-body modal-body-ux">${noticia.contenido || ''}</div>
+                  <div class="modal-header border-0"><h4 class="modal-title">${noticia.titulo}</h4></div>
+                  <div class="modal-body"><img src="${noticia.imagen}" class="w-100 mb-3"><p>${noticia.contenido || ''}</p></div>
                 </div>
               </div>
             </div>`;
