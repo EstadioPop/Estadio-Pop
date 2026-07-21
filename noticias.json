@@ -1,7 +1,24 @@
 [
 
+
   {
-  "categoria": "Básquet",
+    "categoria": "Fútbol",
+    "tipoClase": "futbol",
+    "titulo": "Variantes tácticas en mitad de cancha buscando mayor dinámica",
+    "bajada": "El cuerpo técnico probó alternativas durante la semana para potenciar la generación de juego ofensivo...",
+    "tiempo": "Hace 6 horas",
+    "imagen": "imagen1.jpg"
+  },
+  {
+    "categoria": "Básquet",
+    "tipoClase": "basketball",
+    "titulo": "\"Mantener la concentración los 40 minutos es la prioridad\"",
+    "bajada": "Declaraciones exclusivas del capitán tras la última sesión de entrenamientos en el estadio...",
+    "tiempo": "Hace 8 horas",
+    "imagen": "imagen2.jpg"
+  },
+  {
+    "categoria": "Básquet",
     "tipoClase": "basketball",
     "titulo": "Bienvenido Bryan Carabalí a Atenas",
     "bajada": "El pívot ecuatoriano se suma oficialmente al Griego para aportar su potencia física en la pintura durante la nueva temporada de la Liga Nacional",
@@ -9,3 +26,4 @@
     "imagen": "carabali2.jpg"
   }
 ]
+
