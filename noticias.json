@@ -1,11 +1,21 @@
 [
+
   {
+  "categoria": "Básquet",
+    "tipoClase": "basketball",
+    "titulo": "\Bienvenido Bryan Carabalí a Atenas\"",
+    "bajada": "El pívot ecuatoriano se suma oficialmente al Griego para aportar su potencia física en la pintura durante la nueva temporada de la Liga Nacional",
+    "tiempo": "Hace 8 horas",
+    "imagen": "carabali2.jpg"
+  },
+  
+    {
     "seccion": "auto",
     "titulo": "Franco sumo puntos",
     "descripcion": "",
     "contenido": "",
     "imagen": "franco.jpeg"
-  }
+  },
   {
     "seccion": "lnb",
     "titulo": "Bienvenido Bryan Carabalí a Atenas",
